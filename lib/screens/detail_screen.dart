@@ -32,7 +32,7 @@ class DetailScreen extends StatefulWidget {
               Positioned(
                top: h*.04,left: w*.05,
                child:const CircleAvatar(
-                backgroundColor: Colors.redAccent,
+                backgroundColor:  const Color.fromARGB(255, 202, 122, 1),
                 child: BackButton(color: Colors.white,),
                )
               ),
@@ -69,7 +69,7 @@ class DetailScreen extends StatefulWidget {
                 icon: Icons.monitor_heart_outlined, label: 'Calories',
               ),
               CircleButton(
-                icon: Icons.table_chart_outlined, label: 'unit chart',
+                icon: Icons.table_chart_outlined, label: 'Unit chart',
               ),
             ],
           ),
@@ -97,7 +97,7 @@ class DetailScreen extends StatefulWidget {
                   child: ClipPath(
                     clipper: CustomClipPath(),
                   child: Container(
-                    color: Colors.redAccent,
+                    color:  const Color.fromARGB(255, 202, 122, 1),
                     child: Center(
                       child: Text('Ingredients Required',
                       style: TextStyle(fontWeight: FontWeight.bold,
@@ -111,7 +111,7 @@ class DetailScreen extends StatefulWidget {
 
 
                 Expanded(
-                  flex: 1,
+                  flex: 0,
                   child: Container(
                     color: Colors.white,
                     child: Center(
@@ -123,7 +123,7 @@ class DetailScreen extends StatefulWidget {
             ),
           ),
           SizedBox(
-            height: h*1.8,
+            height: h*0.215,
           )
         ],
       ),

@@ -13,7 +13,7 @@ class CircleButton extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: w*0.06,
-          backgroundColor: Colors.redAccent,
+          backgroundColor: const Color.fromARGB(255, 202, 122, 1),
           child: Center(
             child: Icon(icon, color: Colors.white,),
           ),
