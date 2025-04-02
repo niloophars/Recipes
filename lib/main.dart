@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nomnom/screens/onboarding.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   runApp(const MyApp());
 }
 
