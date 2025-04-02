@@ -7,7 +7,7 @@ class ConstantFunction {
   
   static Future<List<Map<String,dynamic>>> getResponse(String findRecipe) async {
 
-    String key='dc5091e0a7da42578789b7f5f09fa1fc';
+    String key='YOUR_API_KEY';
  
     String api='https://api.spoonacular.com/recipes/complexSearch?query=$findRecipe&apiKey=$key';
   
