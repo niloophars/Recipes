@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     pageController=PageController(initialPage: currentIndex);
   }
   
@@ -26,6 +27,8 @@ class _HomeState extends State<Home> {
     super.dispose();
     pageController.dispose();
   }
+
+
 
   @override
   Widget build(BuildContext context) {

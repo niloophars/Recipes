@@ -103,12 +103,12 @@ class HomeTabBarView extends StatelessWidget {
         return  SizedBox(
           height: h*0.28,
           child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
               
                   itemBuilder: (context, index) {
             Map<String, dynamic> snap=snapshot.data![index];
-            int time=snap['totalTime'].toInt();
-            int calories=snap['calories'].toInt();
+            // int time=snap['readyInMinutes'].toInt();
+            // int calories=snap['calories'].toInt();
             return Container(
               margin: EdgeInsets.only(
                 right: w*0.02
@@ -140,9 +140,9 @@ class HomeTabBarView extends StatelessWidget {
                           fontWeight: FontWeight.bold
                         ),),
                         SizedBox(height: h*0.01,),
-                        Text("${calories.toString()} . ${time.toString()}", style: TextStyle(
-                          fontSize: w*0.03, color: Colors.grey
-                        ),)
+                        // Text(" ${time.toString()}", style: TextStyle(
+                        //   fontSize: w*0.03, color: Colors.grey
+                        // ),)
                     ],
                   )
                 ],
