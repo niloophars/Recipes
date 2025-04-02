@@ -13,13 +13,13 @@ class IngredientList extends StatelessWidget {
       itemCount: ingredients.length,
       itemBuilder: (context, index) {
         int quantity = ingredients[index]['quantity'].toInt() ?? 1;
-      return IngredientItem(
-        quantity: quantity.toString(),
-        imageUrl: ingredients[index]['image'] ?? '',
-        measure: ingredients[index]['measure'] ?? '',
-        food: ingredients[index]['food'] ?? '',
-      );
-       );
-  });
-}
+        return IngredientItem(
+          quantity: quantity.toString(),
+          imageUrl: ingredients[index]['image'] ?? '',
+          measure: ingredients[index]['measure'] ?? '',
+          food: ingredients[index]['food'] ?? '',
+        );
+      },
+    );
+  }
 }
