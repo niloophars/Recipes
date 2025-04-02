@@ -41,7 +41,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           textSize: 18,
           padding: EdgeInsets.symmetric(
             horizontal: w*0.01,
-            vertical: h*0.01
+         
             ),
           tabs: [
             GButton(icon: CupertinoIcons.home, text: 'Home',),
