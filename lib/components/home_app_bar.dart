@@ -9,7 +9,7 @@ class HomeAppBar extends StatelessWidget {
     return  Row(
       children: [
         Text('What are you cooking?', style: TextStyle(
-          fontWeight: FontWeight.bold, fontSize: w*0.07,
+          fontWeight: FontWeight.bold, fontSize: w*0.06,
           height: 1
         ),),
         const Spacer()
