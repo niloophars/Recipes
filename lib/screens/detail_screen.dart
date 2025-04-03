@@ -111,9 +111,40 @@ class DetailScreen extends StatefulWidget {
                   icon: Icons.share, label: 'Share',
                  ),
                ),
-                const CircleButton(
+               ValueListenableBuilder(
+                valueListenable:myBox.listenable(),
+               buillder:(context,box,_){
+                String key=widget.item['label'];
+                bool saved=myBox.containsKey(key);
+                if(saved){
+                  return GestureDetector(
+                    onTap: (){
+                      myBox.delete(key);
+                      scaffoldMessenger.of(context).showSnackBar(
+                       const Snackbar(
+                        duration: Duration(seconds: 1),
+                        content: Text('Recipe Deleted'))
+                      );
+                    },
+                    child: const CircleButton(
+                   icon: Icons.bookmark,label:'Saved',)
+                  );
+                }
+                else{
+                  return GestureDetector(
+                    onTap: (){
+                      myBox.put(key, key);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                       const  SnackBar(
+                        duration: Duration(seconds: 1),
+                        content: Text('Recipe saved successfully'))
+                        );
+                    },
                   icon: Icons.bookmark_border, label: 'Save',
-                ),
+                );
+                }
+               })
+                ,
                 GestureDetector(
                   onTap: (){
                     ShowDialog.showCalories(widget.item['totalNutrients'], context);
@@ -190,9 +221,7 @@ class DetailScreen extends StatefulWidget {
           ],
         ),
         ),
-        ],
-            ),
-      ),
-  )
- }}
+     },
+  }
+
 >>>>>>> 23c2dc7adf1c9b3078b0be018eac5c0eefc7809a
