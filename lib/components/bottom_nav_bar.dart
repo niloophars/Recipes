@@ -30,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           color: const Color.fromARGB(255, 0, 0, 0),
           tabBackgroundGradient: LinearGradient(
             colors: [
-              const Color.fromARGB(255, 241, 218, 134)!,
+              const Color.fromARGB(255, 241, 218, 134),
               const Color.fromARGB(255, 204, 80, 3)
             ],
             begin: Alignment.topLeft,

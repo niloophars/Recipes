@@ -5,7 +5,7 @@ import 'package:http/http.dart ' as http;
 
 class ConstantFunction {
   
-  static Future<List <Map<String,dynamic>>> getResponse(String findRecipe) async {
+  static Future<List<Map<String,dynamic>>> getResponse(String findRecipe) async {
 
     String key='ce4006da9c2e435eb068ba066d82ab5f';
  
@@ -15,7 +15,6 @@ class ConstantFunction {
     List<Map<String,dynamic>> recipe= [];
     if(response.statusCode==200){
       var data=jsonDecode(response.body);
-         print("Recipe API Response: $data");
 
       if(data['results']!=null){
         for(var result in data['results']) {
@@ -28,7 +27,6 @@ class ConstantFunction {
       }
       return recipe;
     }
-  
     return recipe;
   }
 
@@ -43,9 +41,8 @@ class ConstantFunction {
     List<Map<String,dynamic>> recipe= [];
     if(response.statusCode==200){
       var data=jsonDecode(response.body);
-         print("Recipe API Response: $data");
 
-      if (data['extendedIngredients'] != null && data['extendedIngredients'].isNotEmpty){
+      if(data['extendedIngredients']!=null){
         for(var ingredient in data['extendedIngredients']) {
           recipe.add({
             'original': ingredient['original'], 
@@ -58,7 +55,6 @@ class ConstantFunction {
       }
       return recipe;
     }
-
     return recipe;
   }
 
