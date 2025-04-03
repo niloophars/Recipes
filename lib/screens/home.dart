@@ -53,6 +53,7 @@ class _HomeState extends State<Home> {
         physics: NeverScrollableScrollPhysics(),
         children: [
           HomePage(),
+          RecipeCategory(),
           Center(child: Text('Page 2'),),
           Center(child: Text('Page 3'),),
           Center(child: Text('Page 4'),),

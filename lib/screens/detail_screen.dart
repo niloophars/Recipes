@@ -23,6 +23,48 @@ class DetailScreen extends StatefulWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+<<<<<<< HEAD
+          Const  SizedBox(height: 20,), 
+          Text("$time min"),
+          SizedBox(height: h*.01,),
+
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CircleButton(
+               icon: Icons.share,label: 'Share',
+              ),
+               CircleButton(
+               icon: Icons.bookmark_border,label: 'Save',
+              ),
+               CircleButton(
+               icon: Icons.monitor_heart_outlined,label: 'Calories',
+              ),
+               CircleButton(
+               icon: Icons.table_chart_outlined,label: 'unit chart',
+              ),//Row
+             SizedBox(height: h*.02,),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+               children: [
+                Text('Direction',style: TextStyle(fontWeight: FontWeight.bold,fontSize: w*.06),),
+                SizedBox(width: w*.34,
+                child: ElevatedButton(onPressed:(),{},
+                child:const Text('Start')),
+                
+                SizedBox(height: h*.02,),
+
+                )
+               ]
+             )
+
+            ],
+          )
+         ],
+         ),
+         ),
+    
+=======
             Stack(
               children: [
                Container(
@@ -58,15 +100,25 @@ class DetailScreen extends StatefulWidget {
               // Text("$time min"),
               SizedBox(height: h*0.01,),
         
-             const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CircleButton(
+                GestureDectector(
+                  onTap:(){
+                    ShareRecipe.share(widget.item['url']);
+                  }
+                  child: const CircleButton(
                   icon: Icons.share, label: 'Share',
-                ),
-                CircleButton(
+                 ),
+               ),
+                const CircleButton(
                   icon: Icons.bookmark_border, label: 'Save',
                 ),
+                GestureDectector(
+                  onTap: (){
+                    ShowDialog.showCalories(widget.item['totalNutrients'], context);
+                  };
+                )
                 CircleButton(
                   icon: Icons.monitor_heart_outlined, label: 'Calories',
                 ),
@@ -138,3 +190,4 @@ class DetailScreen extends StatefulWidget {
       ),
   );
  }}
+>>>>>>> 23c2dc7adf1c9b3078b0be018eac5c0eefc7809a
