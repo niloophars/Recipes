@@ -43,10 +43,36 @@ State<DetailScreen> createState() => _DetailScreenState();
           Text("$time min"),
           SizedBox(height: h*.01,),
 
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CircleButton()
+              CircleButton(
+               icon: Icons.share,label: 'Share',
+              ),
+               CircleButton(
+               icon: Icons.bookmark_border,label: 'Save',
+              ),
+               CircleButton(
+               icon: Icons.monitor_heart_outlined,label: 'Calories',
+              ),
+               CircleButton(
+               icon: Icons.table_chart_outlined,label: 'unit chart',
+              ),//Row
+             SizedBox(height: h*.02,),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+               children: [
+                Text('Direction',style: TextStyle(fontWeight: FontWeight.bold,fontSize: w*.06),),
+                SizedBox(width: w*.34,
+                child: ElevatedButton(onPressed:(),{},
+                child:const Text('Start')),
+                
+                SizedBox(height: h*.02,),
+
+                )
+               ]
+             )
+
             ],
           )
          ],
