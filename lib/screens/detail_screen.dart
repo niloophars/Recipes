@@ -103,7 +103,7 @@ class DetailScreen extends StatefulWidget {
              Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                GestureDectector(
+                GestureDetector(
                   onTap:(){
                     ShareRecipe.share(widget.item['url']);
                   }
@@ -114,15 +114,20 @@ class DetailScreen extends StatefulWidget {
                 const CircleButton(
                   icon: Icons.bookmark_border, label: 'Save',
                 ),
-                GestureDectector(
+                GestureDetector(
                   onTap: (){
                     ShowDialog.showCalories(widget.item['totalNutrients'], context);
                   };
+                  child: const CircleButton(
+                    icon: Icons.monitor_heart_outlined, label: 'Calories',
+                  )
                 )
-                CircleButton(
-                  icon: Icons.monitor_heart_outlined, label: 'Calories',
-                ),
-                CircleButton(
+                GestureDetector(
+                  onTap: (){
+                    ShowTable.showTable(context);
+                  }
+                )
+                const CircleButton(
                   icon: Icons.table_chart_outlined, label: 'Unit chart',
                 ),
               ],
