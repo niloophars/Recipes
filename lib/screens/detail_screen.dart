@@ -50,7 +50,7 @@ class DetailScreen extends StatefulWidget {
                 Text('Direction',style: TextStyle(fontWeight: FontWeight.bold,fontSize: w*.06),),
                 SizedBox(width: w*.34,
                 child: ElevatedButton(onPressed:(),{},
-                child:const Text('Start')),
+                child:Text('Start')),
                 
                 SizedBox(height: h*.02,),
 
@@ -193,6 +193,6 @@ class DetailScreen extends StatefulWidget {
         ],
             ),
       ),
-  );
+  )
  }}
 >>>>>>> 23c2dc7adf1c9b3078b0be018eac5c0eefc7809a
