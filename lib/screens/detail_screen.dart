@@ -58,15 +58,25 @@ class DetailScreen extends StatefulWidget {
               // Text("$time min"),
               SizedBox(height: h*0.01,),
         
-             const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CircleButton(
+                GestureDectector(
+                  onTap:(){
+                    ShareRecipe.share(widget.item['url']);
+                  }
+                  child: const CircleButton(
                   icon: Icons.share, label: 'Share',
-                ),
-                CircleButton(
+                 ),
+               ),
+                const CircleButton(
                   icon: Icons.bookmark_border, label: 'Save',
                 ),
+                GestureDectector(
+                  onTap: (){
+                    ShowDialog.showCalories(widget.item['totalNutrients'], context);
+                  };
+                )
                 CircleButton(
                   icon: Icons.monitor_heart_outlined, label: 'Calories',
                 ),
