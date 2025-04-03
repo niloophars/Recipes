@@ -12,15 +12,13 @@ class AllRecipe extends StatelessWidget {
     final w = MediaQuery.of(context).size.width; // Used for layout calculations
     return Scaffold(
       appBar: CustomAppBar(title: recipe, back: true),
-
       body: FutureBuilder(
-        future: ConstantFunction.getResponse(
-          recipe),
+        future: ConstantFunction.getResponse(recipe),
         // Ensure this function is defined and returns a valid Future
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return const Center(child:Text('no data');
-           }else if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: Text('no data'));
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
             );
@@ -39,8 +37,8 @@ class AllRecipe extends StatelessWidget {
                 crossAxisSpacing: 10,
                 childAspectRatio: 0.6,
               ),
-              itemCount:
-                  (snapshot.data as List<dynamic>?)?.length ?? 0, // Cast snapshot.data to List
+              itemCount: (snapshot.data as List<dynamic>?)?.length ??
+                  0, // Cast snapshot.data to List
               itemBuilder: (context, index) {
                 Map<String, dynamic> snap =
                     (snapshot.data as List<Map<String, dynamic>>)[index];
