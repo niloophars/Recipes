@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../components/custom_app_bar.dart';
+import 'package:nomnom/components/custom_app_bar.dart';
+import 'package:nomnom/constants/constant_function.dart';
 
 class AllRecipe extends StatelessWidget {
   final String recipe;
@@ -50,13 +51,13 @@ class AllRecipe extends StatelessWidget {
                         flex: 3,
                         child: Stack(
                           children: [
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.pushNamed(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => RecipeDetails(recipe: snap['label'])),
-                              },
-                            )
+                            // GestureDetector(
+                            //   onTap: (){
+                            //     Navigator.pushNamed(
+                            //       context,
+                            //       MaterialPageRoute(builder: (context) => RecipeDetails(recipe: snap['title'])),
+                            //     );}
+                            // ),
                             Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(

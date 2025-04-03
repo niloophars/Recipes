@@ -16,7 +16,6 @@ class IngredientItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     return Container(
@@ -64,29 +63,30 @@ class IngredientItem extends StatelessWidget {
             Icons.add_circle_outline,
             size: w * 0.07,
             color: Colors.redAccent,
-=======
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        children: [
-          // Display ingredient image
-          imageUrl.isNotEmpty
-              ? Image.network(imageUrl, width: 50, height: 50, fit: BoxFit.cover)
-              : Container(width: 50, height: 50, color: Colors.grey), // Placeholder for missing image
+            
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(vertical: 8.0),
+  //     child: Row(
+  //       children: [
+  //         // Display ingredient image
+  //         imageUrl.isNotEmpty
+  //             ? Image.network(imageUrl, width: 50, height: 50, fit: BoxFit.cover)
+  //             : Container(width: 50, height: 50, color: Colors.grey), // Placeholder for missing image
 
-          const SizedBox(width: 10),
+  //         const SizedBox(width: 10),
 
-          // Display ingredient name, quantity and unit
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(food, style: const TextStyle(fontWeight: FontWeight.bold)),
-              Text('Quantity: $quantity $measure'),
-            ],
->>>>>>> e974f8b5a0e7a9048335c9fdb3e5de616ccf9fd9
-          ),
-        ],
-      ),
-    );
-  }
+  //         // Display ingredient name, quantity and unit
+  //         Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Text(food, style: const TextStyle(fontWeight: FontWeight.bold)),
+  //             Text('Quantity: $quantity $measure'),
+  //           ],
+
+  //         ),
+  //       ],
+  //     ),
+  //   ))
+  // }
+)]));}
 }

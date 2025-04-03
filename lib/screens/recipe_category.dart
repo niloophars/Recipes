@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nomnom/constants/category_list.dart';
 import 'package:nomnom/components/recipe_category_view.dart';
 
+
 class RecipeCategoryScreen extends StatelessWidget {
   final List<Map<String, String>> categories = [
     
@@ -24,14 +25,14 @@ class RecipeCategoryScreen extends StatelessWidget {
                 height:h*.106,
                 child:Row(
                    mainAxisAlignment: MainAxisAlignment.start,
-                     children: [
-                      RecipeCategoryView(name: name[0], image: image[0]),
-                      RecipeCategoryView(name: name[1], image: image[1]),
-                      RecipeCategoryView(name: name[2], image: image[2]),
-                     ],
+                    //  children: [
+                    //   RecipeCategoryView(name: name[0], image: image[0]),
+                    //   RecipeCategoryView(name: name[1], image: image[1]),
+                    //   RecipeCategoryView(name: name[2], image: image[2]),
+                    //  ],
                     ),
                   ),
-            ],
+            
                SizedBox(height: h*0.01,),
                Text("For You",style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -65,9 +66,9 @@ class RecipeCategoryScreen extends StatelessWidget {
                       ),
 
                       SizedBox(height: h*.003,),
-                      Text(categories[index],style:const TextStyle(
-                        fontWeight: FontWeight.bold,color: Colors.black45
-                      ),),
+                      // Text(categories[index], style:const TextStyle(
+                      //   fontWeight: FontWeight.bold,color: Colors.black45
+                      // ),),
                  
                       ],
                     ),
@@ -78,8 +79,8 @@ class RecipeCategoryScreen extends StatelessWidget {
                 
                  ),
                )
-             ),
-            ),
+             ],
+            ),)
           );
       
      }       

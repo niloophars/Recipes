@@ -23,7 +23,7 @@ List categories=[
   'pasta'
   'Cold'
 ];
-List catagoryImage=[
+List categoryImage=[
   ImagesPath.Cakes,
   ImagesPath.Dessert,
   ImagesPath.Biriyani,
