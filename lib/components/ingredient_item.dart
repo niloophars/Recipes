@@ -14,14 +14,14 @@ class IngredientItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-    var myBox=Hive.box('shopping');
+    // var myBox=Hive.box('shopping');
     return Container(
       margin: EdgeInsets.symmetric(vertical: h * 0.01, horizontal: w * 0.33),
       padding: EdgeInsets.only(
-        top: h * .008,
-        bottom: h * .033,
-        left: h * .008,
-        right: w * .08,
+        top: h * 0.008,
+        bottom: h * 0.008,
+        left: h * 0.008,
+        right: w * 0.08,
       ),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -40,40 +40,43 @@ class IngredientItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.network(imageurl,width: w*.2,height: h*.1,fit: BoxFit.cover,),
+            child: Image.network(imageUrl,width: w*0.2,height: h*0.1,fit: BoxFit.cover,),
           ),
           Text("$food\n$quantity $measure",style: TextStyle(
-            fontSize: w*.04,fontWeight: FontWeight.bold,letterspacing: 1
-          ),),Sizedbox(width: w*.033,),
-          ValueListenableBuilder(
-            valueListenable:myBox.listenable(),
-            builder: (content,box,_){
-              bool exist=box.containsKey(food);
-              if(exist){
-                return GestureDectector(
-                  onTap: (){
-                    myBox.delete(food);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('item deleted'))
-                    )
-                  }
-                  child: Icon(Icons.done,color: Colors.green,size: w*.07));
-              }
-              else { 
-                return GestureDetector(
-                  onTap:(){
-                    String value='$food $measure $quantity';
-                    myBox.put(food, value);
-                    ScoffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('item added successfully'))
-                    )
-                  },
-                child: Icon(
-                Icons.add_circle_outline_rounded,size: w*.07,color: Colors.red,)
-                );
-              }
-            },
-          )
+            fontSize: w*0.04,fontWeight: FontWeight.bold,letterSpacing: 1
+          ),),
+          SizedBox(width: w*.033,),
+        Icon(Icons.add_circle_outline_rounded,size: w*0.07,color: const Color.fromARGB(255, 202, 122, 1),)
+
+          // ValueListenableBuilder(
+          //   valueListenable:myBox.listenable(),
+          //   builder: (content,box,_){
+          //     bool exist=box.containsKey(food);
+          //     if(exist){
+          //       return GestureDectector(
+          //         onTap: (){
+          //           myBox.delete(food);
+          //           ScaffoldMessenger.of(context).showSnackBar(
+          //             const SnackBar(content: Text('item deleted'))
+          //           )
+          //         }
+          //         child: Icon(Icons.done,color: Colors.green,size: w*.07));
+          //     }
+          //     else { 
+          //       return GestureDetector(
+          //         onTap:(){
+          //           String value='$food $measure $quantity';
+          //           myBox.put(food, value);
+          //           ScoffoldMessenger.of(context).showSnackBar(
+          //             const SnackBar(content: Text('item added successfully'))
+          //           )
+          //         },
+          //       child: Icon(
+          //       Icons.add_circle_outline_rounded,size: w*.07,color: const Color.fromARGB(255, 202, 122, 1),)
+          //       );
+          //     }
+          //   },
+          // )
         ]
       )
     );

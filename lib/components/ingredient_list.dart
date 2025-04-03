@@ -9,15 +9,15 @@ class IngredientList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+      physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
       itemCount: ingredients.length,
       itemBuilder: (context, index) {
-        int quantity = ingredients[index]['quantity'].toInt() ?? 1;
+        int quantity = ingredients[index]['amount'].toInt() ?? 1;
         return IngredientItem(
           quantity: quantity.toString(),
           imageUrl: ingredients[index]['image'] ?? '',
-          measure: ingredients[index]['measure'] ?? '',
-          food: ingredients[index]['food'] ?? '',
+          measure: ingredients[index]['unit'] ??  '',
+          food: ingredients[index]['name'] ??  '',
         );
       },
     );
