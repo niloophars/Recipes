@@ -212,16 +212,16 @@ class DetailScreen extends StatefulWidget {
                 ],
               ),
             ),
+            
             SizedBox(
               height: h*1.8,
               child: IngredientList(
                 ingredients: widget.item['extendedIngredients'] ?? [],
-              ),
-            ),
+              ),),
           ],
         ),
         ),
-     },
+  ),},
   }
 
 >>>>>>> 23c2dc7adf1c9b3078b0be018eac5c0eefc7809a
