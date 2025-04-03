@@ -19,9 +19,11 @@ class AllRecipe extends StatelessWidget {
         // Ensure this function is defined and returns a valid Future
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child:Text('no data');
            }else if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: Text('no data'));
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
 
           return Padding(
