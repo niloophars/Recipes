@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomnom/constants/constant_function.dart';
+import 'package:nomnom/screens/detail_screen.dart';
 
 class TabBarWidget extends StatelessWidget {
   const TabBarWidget({super.key});
@@ -16,11 +17,11 @@ class TabBarWidget extends StatelessWidget {
             color: Colors.white,
             height: h*0.05,
             child: TabBar(
-              unselectedLabelColor: Colors.red,
+              unselectedLabelColor: const Color.fromARGB(255, 202, 122, 1),
               labelColor: Colors.white,
               dividerColor: Colors.white,
               indicator: BoxDecoration(
-                color: Colors.red,
+                color: const Color.fromARGB(255, 202, 122, 1),
                 borderRadius: BorderRadius.circular(20),
               ),
               labelPadding: EdgeInsets.symmetric(horizontal: w*0.012 ),
@@ -62,7 +63,7 @@ class TabItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.red,
+          color: const Color.fromARGB(255, 202, 122, 1),
         ),
         borderRadius: BorderRadius.circular(20)
       ),
@@ -77,29 +78,29 @@ class TabItem extends StatelessWidget {
   }
 }
 
-// class HomeTabBarView extends StatelessWidget {
-//   final String recipe;
-//   const HomeTabBarView({super.key, required this.recipe});
+class HomeTabBarView extends StatelessWidget {
+  final String recipe;
+  const HomeTabBarView({super.key, required this.recipe});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     final h=MediaQuery.of(context).size.height;
-//     final w=MediaQuery.of(context).size.width;
-//     return  FutureBuilder(
-//       future: ConstantFunction.getResponse(recipe),
-//       builder: (context, snapshot) {
-//         if (snapshot.connectionState==ConnectionState.waiting) {
-//           return const Center(
-//             child: CircularProgressIndicator(),
-//           );
-//         }
+  @override
+  Widget build(BuildContext context) {
+    final h=MediaQuery.of(context).size.height;
+    final w=MediaQuery.of(context).size.width;
+    return  FutureBuilder(
+      future: ConstantFunction.getResponse(recipe),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState==ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
     
       
-//        else if(!snapshot.hasData) {
-//           return const Center(
-//             child: Text('no data'),
-//           );
-//         }
+       else if(!snapshot.hasData) {
+          return const Center(
+            child: Text('no data'),
+          );
+        }
 //         return  SizedBox(
 //           height: h*0.28,
 //           child: ListView.separated(
@@ -161,35 +162,13 @@ class TabItem extends StatelessWidget {
 //   }
 // }
 
-class HomeTabBarView extends StatelessWidget {
-  final String recipe;
-  const HomeTabBarView({super.key, required this.recipe});
 
-  @override
-  Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
-
-    return FutureBuilder(
-      future: ConstantFunction.getResponse(recipe),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-
-        if (!snapshot.hasData) {
-          return const Center(
-            child: Text('No data'),
-          );
-        }
 
         // Pinterest-style layout using GridView
         return GridView.builder(
           padding: EdgeInsets.symmetric(horizontal: w * 0.02), // Add padding only for horizontal space
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(), // Disable scrolling, because the parent widget controls it
+  // Disable scrolling, because the parent widget controls it
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: w * 0.45, // Width of each grid item (adjust based on screen size)
             mainAxisSpacing: 10, // Vertical space between items
@@ -209,19 +188,27 @@ class HomeTabBarView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Image part of the card
-                  Container(
-                    width: w,
-                    height: h * 0.17, // Set fixed height for images (adjust based on your needs)
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        snap['image'],
-                        fit: BoxFit.cover, // Ensures the image covers the area without distorting
-                        width: double.infinity,
-                        height: double.infinity,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                       MaterialPageRoute(builder: (context)=>
+                       DetailScreen(item: snap,)));
+                    },
+                    
+                    child: Container(
+                      width: w,
+                      height: h * 0.17, // Set fixed height for images (adjust based on your needs)
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.network(
+                          snap['image'],
+                          fit: BoxFit.cover, // Ensures the image covers the area without distorting
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
                       ),
                     ),
                   ),

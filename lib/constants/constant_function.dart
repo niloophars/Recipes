@@ -7,7 +7,7 @@ class ConstantFunction {
   
   static Future<List<Map<String,dynamic>>> getResponse(String findRecipe) async {
 
-    String key='3a004566d5e04dceb403c0152e7c5a32';
+    String key='ce4006da9c2e435eb068ba066d82ab5f';
  
     String api='https://api.spoonacular.com/recipes/complexSearch?query=$findRecipe&apiKey=$key';
   
@@ -29,6 +29,37 @@ class ConstantFunction {
     }
     return recipe;
   }
+
+
+  static Future<List<Map<String,dynamic>>> getIngredient(int recipeId) async {
+
+    String key='ce4006da9c2e435eb068ba066d82ab5f';
+ 
+    String api='https://api.spoonacular.com/recipes/$recipeId/information?apiKey=$key';
+  
+    final response=await http.get(Uri.parse(api));
+    List<Map<String,dynamic>> recipe= [];
+    if(response.statusCode==200){
+      var data=jsonDecode(response.body);
+
+      if(data['extendedIngredients']!=null){
+        for(var ingredient in data['extendedIngredients']) {
+          recipe.add({
+            'original': ingredient['original'], 
+            'unit': ingredient['unit'],
+            'name': ingredient['name'],
+
+ 
+            });
+        }
+      }
+      return recipe;
+    }
+    return recipe;
+  }
+
+
+
 }
 
 
