@@ -21,27 +21,27 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Container(
       color: Colors.grey[100],
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: w*0.015, vertical: h*0.01),
+        padding: EdgeInsets.symmetric(horizontal: w*0.015, vertical: h*0.05),
         child: GNav(
           gap: 10,
           tabBorderRadius: 100,
-          backgroundColor: Colors.grey,
-          activeColor: Colors.white,
-          color: Colors.blue[600],
+          backgroundColor: const Color.fromARGB(255, 240, 172, 108),
+          activeColor: const Color.fromARGB(255, 5, 0, 0),
+          color: const Color.fromARGB(255, 0, 0, 0),
           tabBackgroundGradient: LinearGradient(
             colors: [
-              Colors.blue[400]!,
-              Colors.blueAccent.shade700
+              const Color.fromARGB(255, 241, 218, 134)!,
+              const Color.fromARGB(255, 204, 80, 3)
             ],
             begin: Alignment.topLeft,
             end: Alignment.topRight
           ),
           
-          iconSize: 30,
+          iconSize: 35,
           textSize: 18,
           padding: EdgeInsets.symmetric(
             horizontal: w*0.01,
-            vertical: h*0.01
+         
             ),
           tabs: [
             GButton(icon: CupertinoIcons.home, text: 'Home',),
