@@ -12,7 +12,7 @@ class ImagesPath {
   static String NorthIndian='images/North-Indian.jpg';
   static String Salads='images/ Salads.jpg';
   static String Biriyani='images/Biriyani.jpg'; 
-  static String Cold Drinks='images/Cold-Drinks.jpg'; 
+  static String ColdDrinks='images/Cold-Drinks.jpg'; 
   static String SouthIndian='images/South-Indian.jpg'; 
   static String Cakes='images/Cakes.jpg';
   static String pasta='images/pasta.jpg';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../components/recipe_category_view.dart';
+import 'package:nomnom/constants/category_list.dart';
+import 'package:nomnom/components/recipe_category_view.dart';
 
 class RecipeCategoryScreen extends StatelessWidget {
   final List<Map<String, String>> categories = [
@@ -12,16 +12,16 @@ class RecipeCategoryScreen extends StatelessWidget {
     final h=MediaQuery.of(context).size.height;
     final w=MediaQuery.of(context).size.width;
     return Scaffold(
-       backgroundColor: Colors.grey.with opacity(.1)
+       backgroundColor: Colors.grey,
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal:w*.04)
+        padding:  EdgeInsets.symmetric(horizontal:w*.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(height: h*.01,),
                SizedBox(
-                height:h*.106
+                height:h*.106,
                 child:Row(
                    mainAxisAlignment: MainAxisAlignment.start,
                      children: [
@@ -31,16 +31,16 @@ class RecipeCategoryScreen extends StatelessWidget {
                      ],
                     ),
                   ),
-                ),//SizedBox
-               SizedBox(height: h*.01,),
+            ],
+               SizedBox(height: h*0.01,),
                Text("For You",style: TextStyle(
-                fontweight=Fontweight.bold,
-                fontsize: w*.055
-              ),)
+                fontWeight: FontWeight.bold,
+                fontSize: w*.055
+              ),),
               
               
                SizedBox(
-                height: h*.45
+                height: h*.45,
                child: GridView.builder(
                  itemCount: categoryImage.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -49,7 +49,7 @@ class RecipeCategoryScreen extends StatelessWidget {
                   ),
                  
                   itemBuilder: (context,index){
-                    return:Container(
+                    return Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
@@ -60,7 +60,7 @@ class RecipeCategoryScreen extends StatelessWidget {
                      crossAxisAlignment: CrossAxisAlignment.center,
                      children: [
                      SizedBox(
-                      height: h*.043,width: w*.08
+                      height: h*.043,width: w*.08,
                       child: Image.asset(categoryImage[index]),
                       ),
 
@@ -72,15 +72,15 @@ class RecipeCategoryScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                 ),
+                 );
 
                   },
                 
                  ),
                )
-             ],
+             ),
             ),
-          ),
-        );
+          );
+      
      }       
    }          

@@ -1,8 +1,8 @@
-import 'package:share_plus/share_dart';
+// import 'package:share_plus/share_dart';
 
-class ShareRecipe{
+// class ShareRecipe{
 
-  static share(String recipeLink) async{
-    await Share.share(recipeLink);
-  }
-}
+//   static share(String recipeLink) async{
+//     await Share.share(recipeLink);
+//   }
+// }

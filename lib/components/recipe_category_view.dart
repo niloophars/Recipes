@@ -13,18 +13,18 @@ class RecipeCategoryView extends StatelessWidget {
       child: Column(
          mainAxisAlignment: MainAxisAlignment.spaceBetween,
          children: [
-          container(
+          Container(
             height: h*.07,
             width: w*.15,
             decoration: BoxDecoration(
               color:Colors.white,
               borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(image: AssetImage(image),fit: Boxfit.cover),
+              image: DecorationImage(image: AssetImage(image),fit: BoxFit.cover),
             ),
           ),
           Center(
             child: Text(name,style: TextStyle(
-              fontweight: Fontweight,bold,color: Colors.black45
+              fontWeight: FontWeight.bold,color: Colors.black45
             ),),
           )
          ],

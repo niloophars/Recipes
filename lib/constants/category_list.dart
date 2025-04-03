@@ -8,8 +8,8 @@ List<String> name=[
 
 
 List<String>images=[
-ImagesPath.breakfast
-ImagesPath.Lunch
+ImagesPath.breakfast,
+ImagesPath.Lunch,
 ImagesPath.Dinner
 ];
 
@@ -24,12 +24,12 @@ List categories=[
   'Cold'
 ];
 List catagoryImage=[
-  ImagesPath.Cakes
-  ImagesPath.Dessert
-  ImagesPath.Biriyani
-  ImagesPath.NorthIndian
-  ImagesPath.SouthIndian
-  ImagesPath.Salads
-  ImagesPath.pasta
-  ImagesPath.Cold
+  ImagesPath.Cakes,
+  ImagesPath.Dessert,
+  ImagesPath.Biriyani,
+  ImagesPath.NorthIndian,
+  ImagesPath.SouthIndian,
+  ImagesPath.Salads,
+  ImagesPath.pasta,
+  ImagesPath.ColdDrinks,
 ];

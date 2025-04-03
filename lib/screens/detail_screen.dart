@@ -23,8 +23,8 @@ class DetailScreen extends StatefulWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-<<<<<<< HEAD
-          Const  SizedBox(height: 20,), 
+
+        SizedBox(height: 20,), 
           Text("$time min"),
           SizedBox(height: h*.01,),
 
@@ -64,7 +64,7 @@ class DetailScreen extends StatefulWidget {
          ),
          ),
     
-=======
+
             Stack(
               children: [
                Container(
