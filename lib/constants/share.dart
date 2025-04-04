@@ -1,8 +1,9 @@
-// import 'package:share_plus/share_dart';
+import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
-// class ShareRecipe{
-
-//   static share(String recipeLink) async{
-//     await Share.share(recipeLink);
-//   }
-// }
+class ShareRecipe {
+  static share(String recipeLink) async {
+    // Share the recipe link using the share_plus package
+    await Share.share(recipeLink);
+  }
+}
