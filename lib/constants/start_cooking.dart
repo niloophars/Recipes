@@ -7,8 +7,5 @@ class StartCooking {
       throw Exception('Could not launch');
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2197ceaf82f1336f2fd7d657a1fe723eedd54368
+
