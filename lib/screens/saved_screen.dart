@@ -10,12 +10,8 @@ class SavedScreens extends StatelessWidget {
     var myBox = Hive.box('saved');
     final h = MediaQuery.of(context).size.height;
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Saved'),
-          centerTitle: true,
-        ),
-        body: Padding(
-            padding: const EdgeInsets.only(top: 10, right: 8, left: 8),
+        appBar: CustomAppBar(title: 'Saved',back: false),
+        body: Padding(padding: const EdgeInsets.only(top: 10, right: 8, left: 8),
             child: ValueListenableBuilder(
                 valueListenable: myBox.listenable(),
                 builder: (context, box, _) {
@@ -31,19 +27,11 @@ class SavedScreens extends StatelessWidget {
                               children: [
                                 Expanded(
                                   flex: 3,
-                                  child: Text(data[index]),
-                                ),
-                                PopupMenuButton(
-                                  itemBuilder: (context) {
+                                  child: Text(data[index])),
+                                PopupMenuButton(itemBuilder: (context) {
                                     return const [
-                                      PopupMenuItem(
-                                        value: 'share',
-                                        child: Text('share'),
-                                      ),
-                                      PopupMenuItem(
-                                        value: 'delete',
-                                        child: Text('delete'),
-                                      ),
+                                      PopupMenuItem(value: 'share', child: Text('share'),),
+                                      PopupMenuItem(value: 'delete', child: Text('delete'),),
                                     ];
                                   },
                                 ),
