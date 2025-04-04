@@ -15,7 +15,7 @@ class ConstantFunction {
     List<Map<String,dynamic>> recipe= [];
     if(response.statusCode==200){
       var data=jsonDecode(response.body);
-         print("Recipe API Response: $data");
+      
 
       if(data['results']!=null){
         for(var result in data['results']) {
@@ -23,6 +23,7 @@ class ConstantFunction {
             'id': result['id'], 
             'title': result['title'], 
             'image': result['image'], 
+            'sourceUrl': result['sourceUrl'] ?? ''
             });
         }
       }
@@ -32,38 +33,32 @@ class ConstantFunction {
     return recipe;
   }
 
+static Future<List<Map<String, dynamic>>> getIngredient(int recipeId) async {
+  String key = 'ce4006da9c2e435eb068ba066d82ab5f';
+  String api = 'https://api.spoonacular.com/recipes/$recipeId/information?apiKey=$key';
 
-  static Future<List<Map<String,dynamic>>> getIngredient(int recipeId) async {
+  final response = await http.get(Uri.parse(api));
+  List<Map<String, dynamic>> recipe = [];
 
-    String key='ce4006da9c2e435eb068ba066d82ab5f';
+  if (response.statusCode == 200) {
+    var data = jsonDecode(response.body);
+   
+
+    if (data['extendedIngredients'] != null && data['extendedIngredients'].isNotEmpty) {
  
-    String api='https://api.spoonacular.com/recipes/$recipeId/information?apiKey=$key';
-  
-    final response=await http.get(Uri.parse(api));
-    List<Map<String,dynamic>> recipe= [];
-    if(response.statusCode==200){
-      var data=jsonDecode(response.body);
-         print("Recipe API Response: $data");
+      for (var ingredient in data['extendedIngredients']) {
+        recipe.add({
+          'image': ingredient['image'],
+          'unit': ingredient['unit'],
+          'name': ingredient['name'],
+          'time': ingredient['readyInMinutes'],
+          'url': result['sourceUrl']
 
-      if (data['extendedIngredients'] != null && data['extendedIngredients'].isNotEmpty){
-        for(var ingredient in data['extendedIngredients']) {
-          recipe.add({
-            'original': ingredient['original'], 
-            'unit': ingredient['unit'],
-            'name': ingredient['name'],
-
- 
-            });
-        }
+        });
       }
-      return recipe;
     }
+  } 
 
-    return recipe;
-  }
-
-
-
+  return recipe; // Ensure this is always returned
 }
-
-
+}

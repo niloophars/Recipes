@@ -4,10 +4,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 
 class BottomNavBar extends StatefulWidget {
-  final int SelectedItem;
+  final int selectedItem;
   final Function(int) onTap;
 
-  const BottomNavBar({super.key, required this.onTap, required this.SelectedItem});
+  const BottomNavBar({super.key, required this.onTap, required this.selectedItem});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -30,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           color: const Color.fromARGB(255, 0, 0, 0),
           tabBackgroundGradient: LinearGradient(
             colors: [
-              const Color.fromARGB(255, 241, 218, 134)!,
+              const Color.fromARGB(255, 241, 218, 134),
               const Color.fromARGB(255, 204, 80, 3)
             ],
             begin: Alignment.topLeft,

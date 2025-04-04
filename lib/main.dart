@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nomnom/screens/onboarding.dart';
 
 void main()async{
@@ -7,8 +7,8 @@ void main()async{
 
  
 
-  await Hive.initFlutter();
-  await Hive.openBox('shopping');
+  // await Hive.initFlutter();
+  // await Hive.openBox('shopping');
 
   runApp(const MyApp());
 }

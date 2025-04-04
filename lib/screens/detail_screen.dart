@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nomnom/constants/constant_function.dart';
 import 'package:nomnom/components/circle_button.dart';
 import 'package:nomnom/components/custom_clip_path.dart';
 import 'package:nomnom/components/ingredient_list.dart';
+import 'package:nomnom/constants/share.dart';
+import 'package:nomnom/constants/start_cooking.dart';
 
 class DetailScreen extends StatefulWidget {
   final Map <String,dynamic> item;
@@ -13,13 +16,30 @@ class DetailScreen extends StatefulWidget {
 
 
   class _DetailScreenState extends State<DetailScreen>{
+    List<Map<String, dynamic>> ingredients = [];
+
+  @override
+    void initState() {
+    super.initState();
+    _fetchIngredients();
+  }
+
+  void _fetchIngredients() async {
+    final data = await ConstantFunction.getIngredient(widget.item['id']);
+    setState(() {
+      ingredients = data;
+    });
+
+  }
+
   @override
  Widget build(BuildContext context) {
+
    final h=MediaQuery.of(context).size.height;
    final w=MediaQuery.of(context).size.width;
   //  String time=widget.item['totalTime'].toString();
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: const Color.fromARGB(255, 244, 227, 209),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -47,22 +67,27 @@ class DetailScreen extends StatefulWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const  SizedBox(height: 20,),
+               SizedBox(height: 20,),
               Text(widget.item['title'],
                 style: TextStyle(
                   fontSize: w*0.05, fontWeight: FontWeight.w700,
                   color: Colors.black
                 ),
               ),
-              const SizedBox(height: 1,),
+              SizedBox(height: 1,),
               // Text("$time min"),
               SizedBox(height: h*0.01,),
         
-             const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CircleButton(
-                  icon: Icons.share, label: 'Share',
+                GestureDetector(
+                  onTap: () {
+                    ShareRecipe.share(widget.item['url']);
+                  },
+                  child: const CircleButton(
+                    icon: Icons.share, label: 'Share',
+                  ),
                 ),
                 CircleButton(
                   icon: Icons.bookmark_border, label: 'Save',
@@ -81,7 +106,9 @@ class DetailScreen extends StatefulWidget {
               children: [
                 Text('Direction', style: TextStyle(fontWeight: FontWeight.bold,fontSize: w*0.06),),
                 SizedBox(width: w*0.34,
-                child: ElevatedButton(onPressed: () {},
+                child: ElevatedButton(onPressed: () {
+                  StartCooking.startCooking(widget.item['url']);
+                },
                 child: const Text('Start')),
                 )
               ],
@@ -124,17 +151,20 @@ class DetailScreen extends StatefulWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: h*1.8,
-              child: IngredientList(
-                ingredients: widget.item['extendedIngredients'] ?? [],
-              ),
-            ),
+                  SizedBox(height: h * 0.02),
+                  SizedBox(
+                    
+                    height: h * 1.8,
+                    child: IngredientList(extendedIngredients: ingredients),
+                  ),
+            
           ],
         ),
         ),
         ],
             ),
       ),
+
+
   );
  }}

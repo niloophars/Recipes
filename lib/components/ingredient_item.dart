@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class IngredientItem extends StatelessWidget {
-  final String quantity, measure, food, imageUrl;
+  final String quantity, measure, food;
   const IngredientItem({
     super.key,
     required this.quantity,
     required this.food,
     required this.measure,
-    required this.imageUrl,
+ 
   });
 
  @override
@@ -16,7 +16,7 @@ class IngredientItem extends StatelessWidget {
     final w = MediaQuery.of(context).size.width;
     // var myBox=Hive.box('shopping');
     return Container(
-      margin: EdgeInsets.symmetric(vertical: h * 0.01, horizontal: w * 0.33),
+      margin: EdgeInsets.symmetric(vertical: h * 0.01, horizontal: w * 0.033),
       padding: EdgeInsets.only(
         top: h * 0.008,
         bottom: h * 0.008,
@@ -28,7 +28,7 @@ class IngredientItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey,
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(0, 3), // changes position of shadow
@@ -40,10 +40,13 @@ class IngredientItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.network(imageUrl,width: w*0.2,height: h*0.1,fit: BoxFit.cover,),
+            
           ),
-          Text("$food\n$quantity $measure",style: TextStyle(
-            fontSize: w*0.04,fontWeight: FontWeight.bold,letterSpacing: 1
+          Expanded(
+            child: Text("$quantity\t $measure\n$food",style: TextStyle(
+            fontSize: w*0.04,fontWeight: FontWeight.bold,letterSpacing: 1,),
+       
+            
           ),),
           SizedBox(width: w*.033,),
         Icon(Icons.add_circle_outline_rounded,size: w*0.07,color: const Color.fromARGB(255, 202, 122, 1),)
