@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:nomnom/components/all_recipe.dart';
+=======
+>>>>>>> 2197ceaf82f1336f2fd7d657a1fe723eedd54368
 
 class RecipeCategoryView extends StatelessWidget {
   final String name,image;
@@ -9,6 +12,7 @@ class RecipeCategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final h=MediaQuery.of(context).size.height;
     final w=MediaQuery.of(context).size.width;
+<<<<<<< HEAD
     return GestureDetector(
       onTap: () {
          Navigator.push(context, 
@@ -36,6 +40,29 @@ class RecipeCategoryView extends StatelessWidget {
            ],
          ),
       ),
+=======
+    return SizedBox(
+      height: h*.105,width: w*.2,
+      child: Column(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: [
+          Container(
+            height: h*.07,
+            width: w*.15,
+            decoration: BoxDecoration(
+              color:Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(image: AssetImage(image),fit: BoxFit.cover),
+            ),
+          ),
+          Center(
+            child: Text(name,style: TextStyle(
+              fontWeight: FontWeight.bold,color: Colors.black45
+            ),),
+          )
+         ],
+       ),
+>>>>>>> 2197ceaf82f1336f2fd7d657a1fe723eedd54368
     );
   }
 }

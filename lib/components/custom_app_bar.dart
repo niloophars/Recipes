@@ -23,9 +23,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
+<<<<<<< HEAD
       backgroundColor: const Color.fromARGB(255, 248, 184, 88),
       leading: back ? const BackButton(color: Colors.white,) : null,
 
     );
   }
 }
+=======
+      backgroundColor: Colors.redAccent,
+      leading: back ? BackButton(color = Colors.white) : null,
+    );
+  }
+}
+>>>>>>> 2197ceaf82f1336f2fd7d657a1fe723eedd54368

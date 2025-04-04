@@ -43,6 +43,50 @@ class DetailScreen extends StatefulWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+
+        SizedBox(height: 20,), 
+          Text("$time min"),
+          SizedBox(height: h*.01,),
+
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CircleButton(
+               icon: Icons.share,label: 'Share',
+              ),
+               CircleButton(
+               icon: Icons.bookmark_border,label: 'Save',
+              ),
+               CircleButton(
+               icon: Icons.monitor_heart_outlined,label: 'Calories',
+              ),
+               CircleButton(
+               icon: Icons.table_chart_outlined,label: 'unit chart',
+              ),//Row
+            SizedBox(height: h * 0.02),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+               children: [
+                Text('Direction',style: TextStyle(fontWeight: FontWeight.bold,fontSize: w*.06),),
+                SizedBox(width: w*.34,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Start'),
+                ),
+                
+                SizedBox(height: h * 0.02),
+
+                )
+               ]
+             )
+
+            ],
+          )
+         ],
+         ),
+         ),
+    
+
             Stack(
               children: [
                Container(
@@ -82,6 +126,7 @@ class DetailScreen extends StatefulWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 GestureDetector(
+
                   onTap: () {
                     ShareRecipe.share(widget.item['url']);
                   },
@@ -90,12 +135,63 @@ class DetailScreen extends StatefulWidget {
                   ),
                 ),
                 CircleButton(
+
+                  onTap:(){
+                    ShareRecipe.share(widget.item['url']);
+                  }
+                  child: const CircleButton(
+                  icon: Icons.share, label: 'Share',
+                 ),
+               ),
+               ValueListenableBuilder(
+                valueListenable:myBox.listenable(),
+               buillder:(context,box,_){
+                String key=widget.item['label'];
+                bool saved=myBox.containsKey(key);
+                if(saved){
+                  return GestureDetector(
+                    onTap: (){
+                      myBox.delete(key);
+                      scaffoldMessenger.of(context).showSnackBar(
+                       const Snackbar(
+                        duration: Duration(seconds: 1),
+                        content: Text('Recipe Deleted'))
+                      );
+                    },
+                    child: const CircleButton(
+                   icon: Icons.bookmark,label:'Saved',)
+                  );
+                }
+                else{
+                  return GestureDetector(
+                    onTap: (){
+                      myBox.put(key, key);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                       const  SnackBar(
+                        duration: Duration(seconds: 1),
+                        content: Text('Recipe saved successfully'))
+                        );
+                    },
+
                   icon: Icons.bookmark_border, label: 'Save',
-                ),
-                CircleButton(
-                  icon: Icons.monitor_heart_outlined, label: 'Calories',
-                ),
-                CircleButton(
+                );
+                }
+               })
+                ,
+                GestureDetector(
+                  onTap: (){
+                    ShowDialog.showCalories(widget.item['totalNutrients'], context);
+                  };
+                  child: const CircleButton(
+                    icon: Icons.monitor_heart_outlined, label: 'Calories',
+                  )
+                )
+                GestureDetector(
+                  onTap: (){
+                    ShowTable.showTable(context);
+                  }
+                )
+                const CircleButton(
                   icon: Icons.table_chart_outlined, label: 'Unit chart',
                 ),
               ],
@@ -151,6 +247,7 @@ class DetailScreen extends StatefulWidget {
                 ],
               ),
             ),
+<<<<<<< HEAD
                   SizedBox(height: h * 0.02),
                   SizedBox(
                     
@@ -166,5 +263,20 @@ class DetailScreen extends StatefulWidget {
       ),
 
 
-  );
+  )
  }}
+=======
+            
+            SizedBox(
+              height = h*1.8,
+              child = IngredientList(
+                ingredients: widget.item['extendedIngredients'] ?? [],
+              ),),
+          ],
+        ),
+        ),
+  ),},
+  }
+
+>>>>>>> 23c2dc7adf1c9b3078b0be018eac5c0eefc7809a
+>>>>>>> 2197ceaf82f1336f2fd7d657a1fe723eedd54368

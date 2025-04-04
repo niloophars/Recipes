@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IngredientItem extends StatelessWidget {
+<<<<<<< HEAD
   final String quantity, measure, food;
   const IngredientItem({
     super.key,
@@ -8,30 +9,42 @@ class IngredientItem extends StatelessWidget {
     required this.food,
     required this.measure,
  
+=======
+  final String quantity;
+  final String imageUrl;
+  final String measure;
+  final String food;
+
+  const IngredientItem({
+    super.key,
+    required this.quantity,
+    required this.imageUrl,
+    required this.measure,
+    required this.food,
+>>>>>>> 2197ceaf82f1336f2fd7d657a1fe723eedd54368
   });
 
- @override
+  @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-    // var myBox=Hive.box('shopping');
     return Container(
       margin: EdgeInsets.symmetric(vertical: h * 0.01, horizontal: w * 0.033),
       padding: EdgeInsets.only(
-        top: h * 0.008,
-        bottom: h * 0.008,
-        left: h * 0.008,
-        right: w * 0.08,
+        top: h * .008,
+        bottom: h * .033,
+        left: h * .008,
+        right: w * .08,
       ),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: Colors.grey,
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
       ),
@@ -40,6 +53,7 @@ class IngredientItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
+<<<<<<< HEAD
             
           ),
           Expanded(
@@ -50,38 +64,52 @@ class IngredientItem extends StatelessWidget {
           ),),
           SizedBox(width: w*.033,),
         Icon(Icons.add_circle_outline_rounded,size: w*0.07,color: const Color.fromARGB(255, 202, 122, 1),)
+=======
+            child: Image.network(
+              imageUrl,
+              height: h * 0.1,
+              width: w * 0.2,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Text(
+            "$food\n$quantity $measure",
+            style: TextStyle(
+              fontSize: h * 0.02,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1,
+            ),
+          ),
+          SizedBox(width: w * 0.02),
+          Icon(
+            Icons.add_circle_outline,
+            size: w * 0.07,
+            color: Colors.redAccent,
+            
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(vertical: 8.0),
+  //     child: Row(
+  //       children: [
+  //         // Display ingredient image
+  //         imageUrl.isNotEmpty
+  //             ? Image.network(imageUrl, width: 50, height: 50, fit: BoxFit.cover)
+  //             : Container(width: 50, height: 50, color: Colors.grey), // Placeholder for missing image
+>>>>>>> 2197ceaf82f1336f2fd7d657a1fe723eedd54368
 
-          // ValueListenableBuilder(
-          //   valueListenable:myBox.listenable(),
-          //   builder: (content,box,_){
-          //     bool exist=box.containsKey(food);
-          //     if(exist){
-          //       return GestureDectector(
-          //         onTap: (){
-          //           myBox.delete(food);
-          //           ScaffoldMessenger.of(context).showSnackBar(
-          //             const SnackBar(content: Text('item deleted'))
-          //           )
-          //         }
-          //         child: Icon(Icons.done,color: Colors.green,size: w*.07));
-          //     }
-          //     else { 
-          //       return GestureDetector(
-          //         onTap:(){
-          //           String value='$food $measure $quantity';
-          //           myBox.put(food, value);
-          //           ScoffoldMessenger.of(context).showSnackBar(
-          //             const SnackBar(content: Text('item added successfully'))
-          //           )
-          //         },
-          //       child: Icon(
-          //       Icons.add_circle_outline_rounded,size: w*.07,color: const Color.fromARGB(255, 202, 122, 1),)
-          //       );
-          //     }
-          //   },
-          // )
-        ]
-      )
-    );
-  }
+  //         const SizedBox(width: 10),
+
+  //         // Display ingredient name, quantity and unit
+  //         Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Text(food, style: const TextStyle(fontWeight: FontWeight.bold)),
+  //             Text('Quantity: $quantity $measure'),
+  //           ],
+
+  //         ),
+  //       ],
+  //     ),
+  //   ))
+  // }
+)]));}
 }

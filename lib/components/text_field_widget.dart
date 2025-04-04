@@ -6,7 +6,6 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController search = TextEditingController();
     final h=MediaQuery.of(context).size.height;
     final w=MediaQuery.of(context).size.width;
     return  Container(
@@ -14,17 +13,13 @@ class TextFieldWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            offset: Offset(0, 1),
-            blurRadius: 2
-          )
+          BoxShadow(color: Colors.black26, offset: Offset(0, 1), blurRadius: 2)
         ],
       ),
       child: TextField(
         controller: search,
         style: TextStyle(
-          fontSize: w*0.04,
+          fontSize: w * 0.04,
           color: Colors.black,
         ),
         decoration: InputDecoration(
@@ -42,16 +37,10 @@ class TextFieldWidget extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12)
           ),
-          suffixIcon: GestureDetector(
-            onTap: () {
-              Navigator.push(context, 
-              MaterialPageRoute(builder: (context)=>AllRecipe(recipe: search.text)));
-            },
-            child: Icon(
-              Icons.search,
-              color: Colors.deepOrangeAccent,
-              size: w*0.07,
-            ),
+          suffixIcon: Icon(
+            Icons.search,
+            color: Colors.deepOrangeAccent,
+            size: w*0.07,
           )
         ),
       ),
