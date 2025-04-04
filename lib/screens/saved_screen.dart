@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:recipe_app_tutorial/components/custom_app_bar.dart';
+import 'package:nomnom/components/custom_app_bar.dart';
 
 class SavedScreens extends StatelessWidget {
   const SavedScreens({super.key});
