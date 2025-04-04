@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nomnom/components/custom_app_bar.dart';
+import 'package:nomnom/constants/share.dart';
 
 class ShoppingScreen extends StatelessWidget {
   const ShoppingScreen({super.key});
@@ -49,8 +50,7 @@ class ShoppingScreen extends StatelessWidget {
                           if (value == 'delete') {
                             deleteItem(index);
                           } else if (value == 'share') {
-                            // Replace with your sharing logic
-                            print('Sharing: ${data[index]}');
+                            ShareRecipe.share(data[index]);
                           }
                         },
                       )
