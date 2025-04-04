@@ -54,8 +54,13 @@ class _HomeState extends State<Home> {
           Center(
             child: Text('Page 3'),
           ),
+<<<<<<< HEAD
           SavedScreen(),
           ShoppingScreen(), // Ensure ShoppingScreen is implemented in the imported file
+=======
+          ShoppingScreen(), // Ensure ShoppingScreen is defined in the imported file
+          ShoppingScreen(),
+>>>>>>> ff2b898a52c355d7d4c5a4dba0391119c50d5e49
         ],
       ),
     );
