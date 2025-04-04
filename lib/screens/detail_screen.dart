@@ -43,16 +43,18 @@ class DetailScreen extends StatefulWidget {
                CircleButton(
                icon: Icons.table_chart_outlined,label: 'unit chart',
               ),//Row
-             SizedBox(height: h*.02,),
+            SizedBox(height: h * 0.02),
              Row(
                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                children: [
                 Text('Direction',style: TextStyle(fontWeight: FontWeight.bold,fontSize: w*.06),),
                 SizedBox(width: w*.34,
-                child: ElevatedButton(onPressed:(),{},
-                child:Text('Start')),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Start'),
+                ),
                 
-                SizedBox(height: h*.02,),
+                SizedBox(height: h * 0.02),
 
                 )
                ]
