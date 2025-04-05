@@ -9,7 +9,7 @@ class ImagesPath {
   static String supper='images/supper.jpg';
   static String northIndian='images/North-Indian.jpg';
   static String salads='images/Salad.jpg';
-  static String biriyani='images/Biriyani.jpg'; 
+  static String biryani='images/Biriyani.jpg';
   static String drinks='images/drinks.jpg'; 
   static String southIndian='images/South-Indian.jpg'; 
   static String cakes='images/Cake.jpg';
@@ -17,6 +17,12 @@ class ImagesPath {
   static String dessert='images/Dessert.jpg';
   static String sweets='images/sweets.jpg';
   static String soup='images/soup.jpg';
+  static String colddrinks='images/Cold-drinks';
+  static String juice='images/juice';
+  static String panipuri='images/panipuri';
+  static String pasta='images/pasta';
+  static String burger='images/burger';
+
 
 }
 

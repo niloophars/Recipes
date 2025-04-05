@@ -5,9 +5,6 @@ List<String> name=[
   'Lunch',
   'Dinner',
   'Supper'
-  'Breakfast'
-  'Lunch'
-  'Dinner'
 ];
 
 
@@ -21,7 +18,7 @@ ImagesPath.supper
 List categories=[
   'Cake',
   'Dessert',
-  'Biriyani',
+  'Biryani',
   'North Indian',
   'South Indian',
   'Salads',
@@ -29,16 +26,29 @@ List categories=[
   'Soup',
   'Ice Cream',
   'Sweets'
+  'Cold Drinks'
+  'Dessert'
+  'Juice'
+  'Panipuri'
+  'Pasta'
+  'Burger'
 ];
 List categoryImage=[
   ImagesPath.cakes,
   ImagesPath.dessert,
-  ImagesPath.biriyani,
+  ImagesPath.biryani,
   ImagesPath.northIndian,
   ImagesPath.southIndian,
   ImagesPath.salads,
   ImagesPath.drinks,
   ImagesPath.soup,
   ImagesPath.icecream,
-  ImagesPath.sweets
+  ImagesPath.sweets,
+  ImagesPath.colddrinks,
+  ImagesPath.dessert,
+  ImagesPath.juice,
+  ImagesPath.panipuri,
+  ImagesPath.pasta,
+  ImagesPath.burger
+
 ];
