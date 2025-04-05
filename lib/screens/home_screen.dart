@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nomnom/components/home_app_bar.dart';
 import 'package:nomnom/components/tab_bar_widget.dart';
-import 'package:nomnom/components/text_field_widget.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -43,8 +42,7 @@ class HomePage extends StatelessWidget {
 
               ),
               SizedBox(height: h*0.022,),
-              
-              TabBarWidget()
+
               
             ],
           ),
